@@ -33,3 +33,9 @@ Este script es útil para mantener actualizadas las variables de entorno en tu r
 ## Notas
 - Asegúrate de revisar y ajustar las rutas y nombres de archivos según la estructura real de tu proyecto MxM.
 - Si tienes alguna duda o problema con el script, revisa las salidas en la consola para obtener información detallada sobre los archivos procesados y las acciones realizadas.
+- Alias opcional 
+  ```bash
+  nano ~/.zshrc
+  alias runEnvMxM='~/Documents/Bash/variablesEntornoUpdate.sh'
+  source ~/.zshrc
+  ```

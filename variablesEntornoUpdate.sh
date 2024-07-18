@@ -9,9 +9,9 @@
 # 1. Configura las rutas a tu código fuente de MxM en CODE_BASE y las variables
 #    de entorno descargadas en ENV_BASE.
 # 2. Da permisos de ejecución al script si no los tiene:
-#      chmod +x nombre_del_script.sh
+#      chmod +x variablesEntornoUpdate.sh
 # 3. Ejecuta el script utilizando Bash:
-#      ./nombre_del_script.sh
+#      ./variablesEntornoUpdate.sh
 #
 
 # Definición de las rutas base
@@ -21,8 +21,8 @@ ENV_BASE="$HOME/Documents/ENV/desarrollo"   # Corregido para expandir ~ correcta
 # Variables de entorno descargadas
 backendDev=(
     "$ENV_BASE/backend/.env"
-#    "$ENV_BASE/certificados/dicmxmapprd1.pfx"
-#    "$ENV_BASE/certificados/keycloak.key"
+    "$ENV_BASE/certificados/dicmxmapprd1.pfx"
+    "$ENV_BASE/certificados/keycloak.key"
     "$ENV_BASE/cronjob/.env"
     "$ENV_BASE/files/.env"
     "$ENV_BASE/notification/.env"
@@ -40,8 +40,8 @@ keycloakDev=(
 # Variables de entorno repo
 backendRepo=(
     "$CODE_BASE/backend/backend/.env"
-#    "$CODE_BASE/backend/certificados/dicmxmapprd1.pfx"
-#    "$CODE_BASE/backend/certificados/keycloak.key"
+    "$CODE_BASE/backend/certificados/dicmxmapprd1.pfx"
+    "$CODE_BASE/backend/certificados/keycloak.key"
     "$CODE_BASE/backend/cronjob/.env"
     "$CODE_BASE/backend/files/.env"
     "$CODE_BASE/backend/notification/.env"
