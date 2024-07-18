@@ -40,8 +40,8 @@ keycloakDev=(
 # Variables de entorno repo
 backendRepo=(
     "$CODE_BASE/backend/backend/.env"
-    "$CODE_BASE/backend/certificados/dicmxmapprd1.pfx"
-    "$CODE_BASE/backend/certificados/keycloak.key"
+    "$CODE_BASE/backend/backend/certificados/dicmxmapprd1.pfx"
+    "$CODE_BASE/backend/backend/certificados/keycloak.key"
     "$CODE_BASE/backend/cronjob/.env"
     "$CODE_BASE/backend/files/.env"
     "$CODE_BASE/backend/notification/.env"
