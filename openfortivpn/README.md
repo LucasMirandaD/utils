@@ -15,11 +15,11 @@ sudo nano /etc/openfortivpn/config
  - Agregá lo siguiente:
 
 ```ini
-host = fvpn.mendoza.gov.ar
+host = fortivpn.mendoza.gov.ar
 username = username # externox.sistemasdic
 password = TU_CONTRASEÑA  # (deja vacío para que se pida al conectar)
-trusted-cert = a209ee6566f1d98d708f40e2400c0021c7015bf50bda1669db8f15e0887f4fff
-# ca-file = /etc/openfortivpn/fortinet_cert.pem # Solo en caso de tenerlo
+trusted-cert = # hash trusted-cert -> lo puedes obtener del servidor desde el servidor que hostea fortivpn
+# ca-file = /etc/openfortivpn/fortinet_cert.pem # Solo en caso de tenerlo, lo puedes obtner del servidor que hostea fortivpn
 ```
 
 ### **3. Ejecutar la VPN desde la terminal:**
