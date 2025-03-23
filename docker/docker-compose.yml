@@ -1,0 +1,82 @@
+services:
+  
+  mysql:
+    image: mysql:8.0
+    restart: no
+    container_name: 'db_mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_SSL_MODE: 'DISABLED' # Deshabilita SSL/TLS
+    ports:
+      - "3306:3306"
+    expose:
+      - '3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  postgres:
+    image: postgres:15
+    container_name: 'postgres'
+    restart: no
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data:rw
+    environment:
+      POSTGRES_PASSWORD: docker
+      POSTGRES_USER: docker
+      POSTGRES_DBUSER: docker
+      POSTGRES_DBPASS: docker
+
+  redis_7:
+    image: redis:7.0.5-alpine
+    restart: always
+    container_name: 'redis_7.0'
+    command: "redis-server /etc/redis/redis.conf"
+    ports:
+      - 6379:6379
+    volumes:
+      - ./volumes/redis/logs:/logs:rw
+      - ./volumes/redis:/etc/redis/data:rw
+      - ./volumes/redis/redis_v7.conf:/etc/redis/redis.conf
+
+  gitlab:
+    image: gitlab/gitlab-ee:14.2.0-ee.0
+    container_name: gitlab
+    restart: no
+    hostname: 'localhost'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:8929'
+    ports:
+      - '8929:8929'
+      - '443:443'
+      - '2424:22'
+    volumes:
+      - './volumes/gitlab/config:/etc/gitlab'
+      - './volumes/gitlab/logs:/var/log/gitlab'
+      - './volumes/gitlab/data:/var/opt/gitlab'
+    shm_size: '512m'
+
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    environment:
+      GF_AUTH_BASIC_ENABLED: true
+      GF_LOG_LEVEL: info
+    restart: no
+    ports:
+      - '3333:3000'
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+volumes:
+  mysql_data:
+  postgres_data:
+  redis_logs:
+  redis_data:
+
